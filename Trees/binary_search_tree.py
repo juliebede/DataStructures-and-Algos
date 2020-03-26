@@ -17,6 +17,9 @@ class BinarySearchTree():
     if (self.is_empty):
       self.root = Node(item, None, None)
     else:
+
+      # change the loop to have a different condition
+      # if current left or current right are None do something
       current = self.root
       new_node = Node(item, None, None)
       while (current != None):
