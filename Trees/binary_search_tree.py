@@ -12,3 +12,11 @@ class BinarySearchTree():
 
   def is_empty(self):
     return self.root == None
+
+  def add_leaf(self, item):
+    if (self.is_empty):
+      self.root = Node(item, None, None)
+    else:
+      current = self.root
+      while (current != None):
+        
