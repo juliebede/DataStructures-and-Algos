@@ -18,5 +18,12 @@ class BinarySearchTree():
       self.root = Node(item, None, None)
     else:
       current = self.root
+      new_node = Node(item, None, None)
       while (current != None):
+        if (item > current.item):
+          if (current.right == None):
+            current.right = new_node
+        elif (item < current.item):
+          if (current.left == None):
+            current.left =new_node
         
