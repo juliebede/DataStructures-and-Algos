@@ -5,17 +5,18 @@
 # O(logN)
 
 def binary_search(arr, target):
-  beginning = 0
-  end = len(arr)
-  while (end > beginning):
-    middle = (beginning + end) // 2
+  beg = 0
+  end = len(arr) - 1
+  
+  while (beg <= end):
+    middle = (beg + end) // 2
     if (arr[middle] == target):
       return True
-    elif (target > middle):
-      beginning = middle + 1
-    else:
+    elif (target < arr[middle]):
       end = middle - 1
-  
+    elif (target > arr[middle]):
+      beg = middle + 1
+
   return False
 
 print(binary_search([1,2,3], 2)) ## true
