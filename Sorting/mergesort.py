@@ -1,22 +1,22 @@
-def merge(beg, end):
-  new_arr = [];
-  i = 0
-  j = 0
+def merge(beg, end, L):
+  i, j, k = 0, 0, 0
   while (i < len(beg) and j < len(end)):
     if (beg[i] < end[j]):
-      new_arr.append(beg[i])
+      L[k] = beg[i]
       i += 1
     else:
-      new_arr.append(end[j])
+      L[k] = end[j]
       j += 1
+    k += 1
   
-  if (i == len(beg) and j < len(end)):
-    new_arr += end[j:]
-  
-  elif (i < len(beg) and j == len(end)):
-    new_arr += beg[i:]
-  
-  return new_arr
+  while (j < len(end)):
+    L[k] = end[j]
+    k, j = k + 1, j + 1
+  while (i < len(beg)):
+    L[k] = beg[i]
+    i, k = i + 1, k + 1  
+
+  return L
 
 def mergesort(arr):
   if (len(arr) == 1):
@@ -24,7 +24,7 @@ def mergesort(arr):
   else:
     beginning = mergesort(arr[:len(arr) // 2])
     end = mergesort(arr[len(arr) // 2:])
-    return merge(beginning, end)
+    return merge(beginning, end, arr)
 
 
 print(mergesort([38, 27, 43, 9]) == [9, 27, 38, 43])
