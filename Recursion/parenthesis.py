@@ -10,14 +10,14 @@ def parenthesis(n):
   ## loops through previous combo and adds to it
   for string in prev:
     beside = "()" + string
+    ends = "(" + string + ")"
     combos.append(beside)
+    if (n != 1):
+      combos.append(ends)
+
     otherside = string + "()"
     if (otherside not in combos):
       combos.append(otherside)
-    ends = "(" + string + ")"
-    if (ends not in combos):
-      combos.append(ends)
-
   return combos
 
 
