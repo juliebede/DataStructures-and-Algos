@@ -1,0 +1,24 @@
+DYNAMIC PROGRAMMING
+-> used for optimization problems (find the max/min based on what is given)
+-> it is basically finding every combination possible
+
+ex) find a combination of the array which returns the max value
+    [1,2,-1,-2]
+    options: 
+    [1],[1,2], [1,2, -1], [1,-1] [2],[2,-1], [-1],[-1,-2], [-2] ... and so on
+    we would return the subarray that would has the max sum
+
+WHAT IS COMBINATION
+-> it is a set of values where order does not matter
+    -> if I have 'ABC', that is a single combination, since order doesn't matter, 'CBA' is the acceptable as well ('ABC' == 'CBA)
+
+FINDING COMBINATIONS WITH DYNAMIC PROGRAMMING
+-> there is a recursive factor to it
+-> everytime you recursive you are make a new combination or adding to a current combination
+-> but, determining what combination to return depends on what we are trying to find
+
+DYNAMIC PROGRAMMING SUBPROBLEMS
+-> the problem can be broken down into subproblems, we want to find the solution to that subproblem before
+    we choose our next move
+
+    
