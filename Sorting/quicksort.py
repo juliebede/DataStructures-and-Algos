@@ -1,28 +1,24 @@
 def partition(arr, left, right):
-  pivot = arr[(left + right) // 2]
-  while (left <= right):
-
-    while (arr[left] < pivot):
-      left += 1
+  pivot = arr[right]
+  i = 0
+  j = 0
+  while (j < right):
+    if (arr[j] <= pivot):
+      arr[i],arr[j] = arr[j], arr[i]
+      i += 1
     
-    while (arr[right] > pivot):
-      right -= 1
-
-    if (left <= right):
-      temp = arr[left]
-      arr[left] = arr[right]
-      arr[right] = temp
-      left += 1
-      right -= 1
-    
-  return left
+    j += 1
+  
+  arr[i], arr[right] = arr[right], arr[i]
+  
+  return i
 
 def quicksort(arr, left, right):
-  index = partition(arr, left, right)
-  if (left < index - 1):
-    quicksort(arr, left, index - 1)
-  if (index < right):
-    quicksort(arr, index, right)
+  pivot = partition(arr, left, right)
+  if (left < pivot - 1):
+    quicksort(arr, left, pivot - 1)
+  if (pivot + 1 < right):
+    quicksort(arr, pivot + 1, right)
 
 
 array = [9,2,23,2,2,4,21,443,2,21,68,500] 
